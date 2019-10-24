@@ -77,19 +77,19 @@ var guessesWtext = document.getElementById("guesseswrong-text");
 }
     guessesRtext.textContent = hiddenWord.join(" ");
 
-    for (var index = 0; index < computersChoice.length; index++) {
-       computersChoice.push(computersChoice[index]);
+    for (var index = 0; index < randomChoices.length; index++) {
+       rightLetters.push(randomChoices[index]);
 }
 
   // User input
   document.onkeyup = function(event) {
 
-    userGuess = event.key;
+   var userGuess = event.key;
     
     guessedLetters.push(userGuess);
-
+    console.log(userGuess);
 }
-  console.log(showBlanks);
+
 
 // Display user input
 // Display wins and losses
