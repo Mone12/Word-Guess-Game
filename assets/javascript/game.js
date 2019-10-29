@@ -1,8 +1,8 @@
 // Constellation Theme
 
-// Create an array of outerspace object and letters
+// Create an array of constellations
 
-var constellations = [
+var wordOptions = [
   "aries",
   "cancer",
   "gemini",
@@ -25,72 +25,48 @@ var constellations = [
   "triangulum",
   "centaurus"
 ];
-var userOptions = [
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
-    "f",
-    "g",
-    "h",
-    "i",
-    "j",
-    "k",
-    "l",
-    "m",
-    "n",
-    "o",
-    "p",
-    "q",
-    "r",
-    "s",
-    "t",
-    "u",
-    "v",
-    "w",
-    "x",
-    "y",
-    "z"
-];
 
-// variables that hold wins/losses/guessmade/guessesleft/rightguess
+//  Counter variables
+var wins = 0;
+var losses = 0;
 
- var wins = 0;
- var rightLetters = [];
- var guessesLeft = 10;
- var guessedLetters = [];
- var hiddenWord =[];
- var randomChoices = 
- constellations[Math.floor(Math.random() * constellations.length)];
+// Elements that holds reference
 
-// Elements hold ID references
 var winsText = document.getElementById("wins-text");
-var guessesRtext = document.getElementById("guessesright-text");
-var guessesLtext = document.getElementById("guessesleft-text");
-var guessesWtext = document.getElementById("guesseswrong-text");
+var lossesText = document.getElementById("losses-text");
+var answerText = document.getElementById("right-guesses");
+var guessesText = document.getElementById("guesses-made");
+var guessesleftText = document.getElementById("remaining-guesses");
 
-// Computer randomly chooses word
-
-    for (var index = 0; index < randomChoices.length; index++) {
-        hiddenWord.push("_");
-}
-    guessesRtext.textContent = hiddenWord.join(" ");
-
-    for (var index = 0; index < randomChoices.length; index++) {
-       rightLetters.push(randomChoices[index]);
-}
-
-  // User input
-  document.onkeyup = function(event) {
-
-   var userGuess = event.key;
+// Game Function
+  function play () {
     
-    guessedLetters.push(userGuess);
-    console.log(userGuess);
-}
+    //Chooses words at random 
+    var computersChoice = 
+      wordOptions[Math.floor(Math.random()* wordOptions.length)];
+    var lettersLeft  = computersChoice.length;    
+      
+      // variables based off of user's input
+      var guessesRemaining= 10;
+      var gameAnswer = [];
+      var displayGuesses =[];
+
+      // for loop for blank spaces of every letter of word
+      for (var index = 0; index < computersChoice.length; index++) {
+            gameAnswer.push("_");
+         }
+
+         var displayString = gameAnswer.join(" ");
 
 
-// Display user input
-// Display wins and losses
-// Restart function
+      // User's input
+      
+
+
+
+  }
+ 
+
+   
+ 
+
