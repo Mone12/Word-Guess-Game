@@ -38,6 +38,9 @@ var blankAndCorrect = [];
 var blanks = 0;
 var wrongGuesses =[];
 
+// variables that holds reference
+var lossText = document.getElementById("losses-text");
+
 
 // Game Function
   function Game() {
@@ -54,7 +57,9 @@ var wrongGuesses =[];
 
     document.getElementById("current-word").innerHTML = " " + blankAndCorrect.join(" ");
 
-};
+  }
+
+
 
 function reset() {
   guessesRemaining = 10;
@@ -71,7 +76,7 @@ function letterCheck(letter) {
     }
   }
   if(letterInWord) {
-    for (var i = 0; i < blanks.length; i++) {
+    for (var i = 0; i < blanks; i++) {
       if (randomWord[i] == letter) {
         blankAndCorrect[i] = letter;
       }
@@ -82,32 +87,32 @@ function letterCheck(letter) {
       guessesRemaining--;
   }
   console.log(blankAndCorrect);
-};
+}
   
 function isFinished() {
+  
   if (lettersOfWord.toString() == blankAndCorrect.toString()) {
     wins++;
     reset()
-    document.getElementById("wins-text").innerHTML = " " + wins;
+    document.getElementById("wins-text").innerHTML = "Wins: " + wins;
   
   } else if (guessesRemaining === 0) {
     losses++;
     reset()
-    document.getElementById("losses-text").innerHTML = "Losses: " + losses;
+    document.getElementById("losses-word").textContent = "Losses: " + losses;
   }
 
-document.getElementById("current-word").innerHTML = " " + blankAndCorrect;
-document.getElementById("remaining-guesses").innerHTML = "Remaining guess: " + guessesRemaining;
+    document.getElementById("current-word").innerHTML = " " + blankAndCorrect.join(" ");
+    document.getElementById("remaining-guesses").innerHTML = "Guesses Left: " + guessesRemaining;
 
 }
 
 Game()
   document.onkeyup = function (event) {
-    var guesses = String.fromCharCode(event.keyCode);
+    var guesses = String.fromCharCode(event.keyCode).toLowerCase();
     letterCheck(guesses);
     isFinished();
     
-    document.getElementById("guesses-made").innerHTML = "Letters: " + wrongGuesses.join(" ");
+    document.getElementById("guesses-made").innerHTML = "Guesses Made: " + wrongGuesses.join(" ");
   
-}
-
+};
