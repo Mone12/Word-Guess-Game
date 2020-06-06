@@ -15,7 +15,11 @@
         "panel.border": "#89ccbf",
         "sideBar.border": "#89ccbf",
         "editorGroup.border": "#89ccbf",
-        "tab.activeBorder": "#89ccbf"
+        "tab.activeBorder": "#89ccbf",
+        "activityBar.activeBackground": "#89ccbf",
+        "activityBar.activeBorder": "#aa63bc",
+        "statusBar.border": "#66bcac",
+        "titleBar.border": "#66bcac"
     },
     "peacock.color": "#66bcac"
 }
